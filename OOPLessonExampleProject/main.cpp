@@ -5,15 +5,22 @@ public:
 	string name;
 	string surname;
 	int age;
-	double avr_marks;
+	float avg_mark;
 };
+
+void change(Student st) {
+	st.name = "no name";
+	st.surname = "no name";
+	st.age = 0;
+	st.avg_mark = 0;
+}
 
 int main() {
 	Student st1;
 	st1.name = "Alex";
 	st1.surname = "Ivanov";
 	st1.age = 14;
-	st1.avr_marks = 10;
+	st1.avg_mark = 10;
 
 	Student st2 = st1;
 
@@ -21,26 +28,26 @@ int main() {
 	cout << st1.name << endl;
 	cout << st1.surname << endl;
 	cout << st1.age << endl;
-	cout << st1.avr_marks << endl;
+	cout << st1.avg_mark << endl;
 
 	cout << st2.name << endl;
 	cout << st2.surname << endl;
 	cout << st2.age << endl;
-	cout << st2.avr_marks << endl;
+	cout << st2.avg_mark << endl;
 
-	st1.avr_marks = 7;
+	st1.avg_mark = 7;
 
 	cout << "\nAfter" << endl;
 
 	cout << st1.name << endl;
 	cout << st1.surname << endl;
 	cout << st1.age << endl;
-	cout << st1.avr_marks << endl;
+	cout << st1.avg_mark << endl;
 
 	cout << st2.name << endl;
 	cout << st2.surname << endl;
 	cout << st2.age << endl;
-	cout << st2.avr_marks << endl;
+	cout << st2.avg_mark << endl;
 
 	system("pause");
 	return 0;
