@@ -9,12 +9,38 @@ public:
 };
 
 int main() {
-	Student st;
+	Student st1;
+	st1.name = "Alex";
+	st1.surname = "Ivanov";
+	st1.age = 14;
+	st1.avr_marks = 10;
 
-	cout << st.name << endl;
-	cout << st.surname << endl;
-	cout << st.age << endl;
-	cout << st.avr_marks << endl;
+	Student st2 = st1;
+
+	cout << "Before" << endl;
+	cout << st1.name << endl;
+	cout << st1.surname << endl;
+	cout << st1.age << endl;
+	cout << st1.avr_marks << endl;
+
+	cout << st2.name << endl;
+	cout << st2.surname << endl;
+	cout << st2.age << endl;
+	cout << st2.avr_marks << endl;
+
+	st1.avr_marks = 7;
+
+	cout << "\nAfter" << endl;
+
+	cout << st1.name << endl;
+	cout << st1.surname << endl;
+	cout << st1.age << endl;
+	cout << st1.avr_marks << endl;
+
+	cout << st2.name << endl;
+	cout << st2.surname << endl;
+	cout << st2.age << endl;
+	cout << st2.avr_marks << endl;
 
 	system("pause");
 	return 0;
