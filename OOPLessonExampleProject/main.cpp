@@ -1,4 +1,4 @@
-#include "main.h"
+﻿#include "main.h"
 
 class Student {
 public:
@@ -6,42 +6,59 @@ public:
 	string surname;
 	int age;
 	float avg_mark;
+
+	Student() {
+		name = "No Name";
+		surname = "No Surname";
+		age = 15;
+		avg_mark = 4;
+	}
+	~Student() {
+		cout << "Destructure" << endl;
+	}
+	//êîíîíè÷åñêèé êîíñòðóêòîð
+	Student(string nm, string surnm, int ag, float avg) {
+		name = nm;
+		surname = surnm;
+		age = ag;
+		avg_mark = avg;
+	}
+	Student(string nm, string surnm) {
+		name = nm;
+		surname = surnm;
+	}
+
+
+	void clear() {
+		name = "No Name";
+		surname = "No Surname";
+		age = 0;
+		avg_mark = 0;
+	}
+	//copy constructor
+	Student(const Student& st) {
+		name = st.name;
+		surname = st.surname;
+		age = st.age;
+		avg_mark = st.avg_mark;
+	}
+	string convert() {
+		string msg = "";
+		msg += name + " " + surname + " age: " + to_string(age) + " avg mark: " + to_string(avg_mark);
+		return msg;
+	}
+	Student test() {
+		Student st;
+		st.name = "Alex";
+		return st;
+	}
 };
 
-void change(Student st) {
-	st.name = "no name";
-	st.surname = "no name";
-	st.age = 0;
-	st.avg_mark = 0;
-}
 
 int main() {
-	Student st1;
-	st1.name = "Alex";
-	st1.surname = "Ivanov";
-	st1.age = 14;
-	st1.avg_mark = 10;
+	Student st1("Ivan", "Ivanov", 18, 8);
+	//Student st2(st1);
+	Student st = test();
 
-	Student st2 = st1;
-
-	cout << "Before" << endl;
-
-	cout << st1.name << endl;
-	cout << st1.surname << endl;
-	cout << st1.age << endl;
-	cout << st1.avg_mark << endl;
-
-
-	st1.avg_mark = 7;
-
-	cout << "\nAfter" << endl;
-
-	cout << st1.name << endl;
-	cout << st1.surname << endl;
-	cout << st1.age << endl;
-	cout << st1.avg_mark << endl;
-
-
-	system("pause");
 	return 0;
 }
