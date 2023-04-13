@@ -2,63 +2,74 @@
 
 class Student {
 public:
-	string name;
-	string surname;
-	int age;
-	float avg_mark;
+    string name;
+    string surname;
+    int age;
+    float avg_marks;
 
-	Student() {
-		name = "No Name";
-		surname = "No Surname";
-		age = 15;
-		avg_mark = 4;
-	}
-	~Student() {
-		cout << "Destructure" << endl;
-	}
-	//êîíîíè÷åñêèé êîíñòðóêòîð
-	Student(string nm, string surnm, int ag, float avg) {
-		name = nm;
-		surname = surnm;
-		age = ag;
-		avg_mark = avg;
-	}
-	Student(string nm, string surnm) {
-		name = nm;
-		surname = surnm;
-	}
+    //default constructor
+    Student() {
+        name = "no name";
+        surname = "no surname";
+        age = 15;
+        avg_marks = 4;
+    }
 
+    //constructor with arguments
+    Student(string nm, string surnm, int a, int marks) {
+        name = nm;
+        surname = surnm;
+        age = a;
+        avg_marks = marks;
+    }
 
-	void clear() {
-		name = "No Name";
-		surname = "No Surname";
-		age = 0;
-		avg_mark = 0;
-	}
-	//copy constructor
-	Student(const Student& st) {
-		name = st.name;
-		surname = st.surname;
-		age = st.age;
-		avg_mark = st.avg_mark;
-	}
-	string convert() {
-		string msg = "";
-		msg += name + " " + surname + " age: " + to_string(age) + " avg mark: " + to_string(avg_mark);
-		return msg;
-	}
-	Student test() {
-		Student st;
-		st.name = "Alex";
-		return st;
-	}
+    //copy-constructor
+    Student(Student& student) {
+        name = student.name;
+        surname = student.surname;
+        age = student.age;
+        avg_marks = student.avg_marks;
+    }
+
+    ~Student() {
+
+    }
+
+    void clear() {
+        name = "no name";
+        surname = "no surname";
+        age = 0;
+        avg_marks = 0;
+    }
+
+    string convert() {
+        string msg = "";
+        msg += name;
+        msg += " " + surname;
+        msg += " (age = " + to_string(age);
+        msg += ", averege mark = " + to_string(avg_marks) + ")";
+        return msg;
+    }
 };
 
-
 int main() {
-	Student st1("Ivan", "Ivanov", 18, 8);
-	//Student st2(st1);
-	Student st = test();
+    //Student st1;              //calling default-constructor
+    Student st2("Ivan", "Ivanov", 14, 10);  //calling constructos witth args
+    Student st3(st2);            //calling copy-constructot
 
-	return 0;
+    //st1.name = "Alex";
+    //st1.surname = "Ivanov";
+    //st1.age = 14;
+    //st1.avg_marks = 10;
+
+    //cout << "Before: " << endl;
+    //cout << st1.convert() << endl;
+
+    //st1.clear();
+
+    //cout << "\nAefore: " << endl;
+    //cout << st1.convert() << endl;
+
+    system("pause");
+    return 0;
 }
