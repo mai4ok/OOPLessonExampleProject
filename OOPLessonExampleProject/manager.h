@@ -1,9 +1,10 @@
-#include "group.h"
 #pragma once
+#include "group.h"
+
 class Manager {
 public:
-	float calcStudentsAvgAge(Group group);
-	float calcStudentsAvgMark(Group group);
-	Student findBestStudents(Group group);
-	Student findWorstStudents(Group group);
+	static float calcStudentsAvgAge(Group group);
+	static float calcStudentsAvgMark(Group group);
+	static Student findBestStudent(Group group);
+	static Student findWorstStudent(Group group);
 };

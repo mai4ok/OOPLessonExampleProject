@@ -1,25 +1,29 @@
-#include"group.h"
+#include "group.h"
 
 Group::Group() {
 	list = NULL;
 	size = 0;
 	name = "no name";
 }
+
 Group::Group(Student* ls, int sz, string nm) {
 	list = ls;
 	size = sz;
 	name = nm;
 }
+
 Group::Group(string nm) {
+	name = nm;
 	list = NULL;
 	size = 0;
-	name = nm;
 }
+
 Group::~Group() {
 	/*if (list != NULL) {
 		delete[] list;
 	}*/
 }
+
 
 void Group::add(Student student) {
 	if (list == NULL) {
@@ -29,7 +33,8 @@ void Group::add(Student student) {
 	}
 	else {
 		Student* temp = new Student[size + 1];
-		for (int i = 0; i < size; i++) {
+		for (int i = 0; i < size; i++)
+		{
 			temp[i] = list[i];
 		}
 		temp[size] = student;
@@ -38,6 +43,7 @@ void Group::add(Student student) {
 		size++;
 	}
 }
+
 void Group::remove(int index) {
 	if (list != NULL && index < size && index >= 0) {
 		Student* temp = new Student[size - 1];
@@ -64,7 +70,8 @@ Student Group::getStudent(int index) {
 }
 
 string Group::convert() {
-	string msg = "Students list of" + name + ":";
+	string msg = "Student list of " + name + ":";
+
 	for (int i = 0; i < size; i++)
 	{
 		Student st = list[i];
